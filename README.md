@@ -1,6 +1,4 @@
-Here's a `README.md` file for your perfume recommendation system project:
 
----
 
 # 🧴 Perfume Recommendation System
 
@@ -86,6 +84,4 @@ for perfume in recommended_perfumes:
 
 This code was originally developed in [Google Colab](https://colab.research.google.com/drive/1BBBK4O96ry74ZkB9lB-Sty09oC5bEjko).
 
----
 
-Let me know if you want to include example outputs, add images, or convert this into a professional PDF doc as well!

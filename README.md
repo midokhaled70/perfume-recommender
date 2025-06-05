@@ -2,62 +2,77 @@
 
 # 🧴 Perfume Recommendation System
 
-This project is a content-based recommendation system that suggests similar perfumes based on their ingredients, accords, target gender, and seasonal usage. It leverages natural language processing and machine learning techniques to find and recommend perfumes with similar profiles.
+A **content-based recommendation engine** that suggests perfumes similar to a given fragrance based on their ingredients, accords, target gender, and seasonal suitability. This project harnesses **Natural Language Processing (NLP)** and **machine learning** techniques to deliver personalized perfume recommendations with high accuracy.
 
-## 📂 Overview
+---
 
-This notebook-based project was developed in **Google Colab** and automatically saved as a Python script. It uses:
+## 📂 Project Overview
 
-- **Pandas** for data handling  
-- **NLTK** for text preprocessing  
-- **Scikit-learn** for vectorization and nearest neighbors search  
-- **Chardet** for encoding detection  
+Developed as a notebook project in **Google Colab** and exported as a Python script, this system leverages powerful Python libraries to process, analyze, and model perfume data, enabling rich similarity matching.
 
-## 🔍 Features
+**Key technologies used:**
 
-- Cleans and preprocesses perfume data (notes, gender, seasons)
-- Uses TF-IDF vectorization with n-grams for feature extraction
-- Trains a Nearest Neighbors model using cosine similarity
-- Recommends top N similar perfumes for a given perfume
+* **Pandas** — Efficient data manipulation and analysis
+* **NLTK** — Robust text preprocessing including tokenization and lemmatization
+* **Scikit-learn** — Feature extraction (TF-IDF) and K-Nearest Neighbors modeling
+* **Chardet** — Automatic encoding detection for reliable data loading
 
-## 📊 Dataset
+---
 
-- `perfume_data_combined.csv`  
-The dataset should include the following columns:
-- `name`
-- `main accords `
-- `top notes`
-- `middle notes`
-- `base notes`
-- `for_gender`
-- `seasons`
+## 🔍 Core Features
+
+* Comprehensive text cleaning and preprocessing of perfume notes and attributes
+* TF-IDF vectorization using n-grams to capture phrase-level features
+* Weighted combination of scent notes, gender, and seasonal attributes for enhanced recommendation accuracy
+* K-Nearest Neighbors model employing cosine similarity to identify closest perfume matches
+* Returns a ranked list of top N perfumes similar to the input query, with similarity scores
+
+---
+
+## 📊 Dataset Details
+
+The dataset (`perfume_data_combined.csv`) includes the following essential columns:
+
+| Column Name    | Description                                 |
+| -------------- | ------------------------------------------- |
+| `name`         | Perfume name                                |
+| `main accords` | Core fragrance accords                      |
+| `top notes`    | Initial scent notes                         |
+| `middle notes` | Heart of the perfume                        |
+| `base notes`   | Lingering scent notes                       |
+| `for_gender`   | Target gender (e.g., male, female, unisex)  |
+| `seasons`      | Seasonal suitability (e.g., summer, winter) |
+
+---
 
 ## 🧠 How It Works
 
-1. **Preprocessing**:  
-   - Tokenization, stopword removal, lemmatization, and punctuation cleanup are applied to both perfume notes and attributes.
+1. **Data Preprocessing**
+   Performs tokenization, stopword removal, lemmatization, and punctuation cleanup on all text fields.
 
-2. **Feature Engineering**:  
-   - Notes and attributes are combined with a custom weight factor to enhance the impact of gender and seasonal preferences.
+2. **Feature Engineering**
+   Combines fragrance notes with gender and season metadata, applying custom weights to reflect their importance in similarity calculations.
 
-3. **TF-IDF Vectorization**:  
-   - Vectorizes combined perfume descriptions using bigrams and filters rare/common terms.
+3. **TF-IDF Vectorization**
+   Converts combined textual data into numeric vectors using bigrams, filtering out overly rare or common terms to focus on meaningful patterns.
 
-4. **Model Training**:  
-   - Trains a K-Nearest Neighbors model (k=10) with cosine similarity to find similar perfumes.
+4. **Model Training**
+   Builds a K-Nearest Neighbors model (with k=10) that uses cosine similarity to measure the closeness between perfume profiles.
 
-5. **Recommendation**:  
-   - For a given perfume, returns the top N similar perfumes along with their similarity percentage.
+5. **Recommendation Generation**
+   Retrieves and ranks the most similar perfumes to the query, providing names, gender, seasons, and similarity percentages.
+
+---
 
 ## 📦 Installation & Setup
 
-Make sure you have the following Python packages installed:
+Ensure you have **Python 3.7+** installed, then install required packages:
 
 ```bash
 pip install pandas scikit-learn nltk chardet
 ```
 
-Also, ensure that you download required NLTK resources:
+Download necessary NLTK resources:
 
 ```python
 import nltk
@@ -66,22 +81,28 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 ```
 
-## 🚀 Usage
+---
+
+## 🚀 Usage Example
 
 ```python
 query_perfume = "Boss Soul"
 recommended_perfumes = recommend_similar_perfumes(query_perfume)
 
-for perfume in recommended_perfumes:
-    print("Perfume Name:", perfume[0])
-    print("For Gender:", perfume[1])
-    print("Seasons:", perfume[2])
-    print("Similarity Percentage:", f"{perfume[3]:.2f}%")
+for name, gender, seasons, similarity in recommended_perfumes:
+    print(f"Perfume Name: {name}")
+    print(f"For Gender: {gender}")
+    print(f"Seasons: {seasons}")
+    print(f"Similarity Percentage: {similarity:.2f}%\n")
 ```
 
+---
 
 ## 📎 Source Notebook
 
-This code was originally developed in [Google Colab](https://colab.research.google.com/drive/1BBBK4O96ry74ZkB9lB-Sty09oC5bEjko).
+Explore the full interactive notebook and code in **Google Colab**:
+[Perfume Recommendation System Notebook](https://colab.research.google.com/drive/1BBBK4O96ry74ZkB9lB-Sty09oC5bEjko)
+
+---
 
 

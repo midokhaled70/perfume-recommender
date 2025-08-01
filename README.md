@@ -103,7 +103,7 @@ for name, gender, seasons, similarity in recommended_perfumes:
 Explore the full interactive notebook and code in **Google Colab**:
 [Perfume Recommendation System Notebook](https://colab.research.google.com/drive/1BBBK4O96ry74ZkB9lB-Sty09oC5bEjko)
 ## Autor
---Mido K
+--Mido Kh
 ---
 
 
